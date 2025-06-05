@@ -2,178 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>J.A Dry Cleaner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mama Junior Pharmacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(270deg, #ff6ec4, #7873f5, #2af598, #ffe53b);
-      background-size: 800% 800%;
-      animation: animatedBackground 15s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    @keyframes animatedBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .poster {
-      width: 90%;
-      max-width: 850px;
+      font-family: 'Poppins', sans-serif;
       background: #ffffff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      border-radius: 25px;
-      overflow: hidden;
-      text-align: center;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
     }
-
-    .poster img {
-      width: 100%;
-      height: auto;
-      border-bottom: 3px solid #444343;
-    }
-
-    .content {
-      padding: 20px;
-    }
-
-    .title {
-      font-size: 3em;
-      color: #d500f9;
+    .moving-text {
+      position: fixed;
+      top: 30%;
+      left: 100%;
+      font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 15px;
-      animation: pulse 2s infinite;
-      text-shadow: 2px 2px 5px #ff4081;
+      color: #00796b;
+      white-space: nowrap;
+      animation: scrollText 20s linear infinite;
+      z-index: 0;
+      opacity: 0.1;
     }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-200%); }
     }
-
-    h2 {
-      color: #00bcd4;
-      font-size: 1.8em;
-      animation: wave 4s infinite ease-in-out;
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(15px); }
-    }
-
-    .description, p {
-      font-size: 1.2em;
-      color: #6a1b9a;
-      background: linear-gradient(90deg, #ff8a65, #fdd835, #81d4fa);
-      background-size: 400% 100%;
-      -webkit-text-fill-color: transparent;
-      animation: gradientFlow 5s linear infinite;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    .contact {
-      font-size: 1.1em;
-      color: #004d40;
-      margin-bottom: 20px;
-    }
-
-    .link-button {
-      background: linear-gradient(45deg, #ff5722, #ff9800);
+    header {
+      background-color: #00796b;
       color: white;
-      padding: 12px 30px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 30px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea, button {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
-
-    .link-button:hover {
-      background: linear-gradient(45deg, #e64a19, #f57c00);
-      transform: scale(1.05);
+    button:hover {
+      background-color: #004d40;
     }
-
-    .upload-section {
-      margin-top: 30px;
+    .map {
+      margin-top: 2rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
-
-    h3 {
-      color: #c2185b;
-      animation: rotateCircle 10s linear infinite;
-      display: inline-block;
-    }
-
-    @keyframes rotateCircle {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    input[type="file"] {
-      margin: 10px 0;
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="poster">
-    <img id="backgroundImage" src="//home/lesnedy/Downloads/IMG_20250520_130902 (1).jpg" alt="J.A Dry Cleaner Poster" />
-    <div class="content">
-      <div class="title">J.A DRY CLEANER</div>
+  <div class="moving-text">Mama Junior Duka la Madawa - Karibu Sana!</div>
+  <header>
+    <h1>Mama Junior Duka la Madawa Baridi</h1>
+    <p>Karibu sana! AFYA YAKO, KIPAUMBELE CHETU. Weka order yako sasa!</p>
+  </header>
 
-      <h2>Karibu J.A cleaner kwa usalama na ubora wa nguo zakoooo mpendwa mteja wetuuu!!!!!!!!</h2>
-      
-      <div class="description">
-        Tunafua nguo za aina zote kwa bei nafuu sanaa! Karibu upate huduma bora ya usafi wa nguo zako.
-      </div>
+  <section>
+    <form id="orderForm">
+      <label for="name">JINA KAMILI</label>
+      <input type="text" id="name" name="name" required>
 
-      <div class="contact">
-        Mawasiliano: +255 744 607 221 | Mahali: Ikuti
-      </div>
+      <label for="phone">NAMBA YA SIMU</label>
+      <input type="tel" id="phone" name="phone" required>
 
-      <a href="https://code-iado.vercel.app/" class="link-button">Bonyeza hapa kutembelea Tovuti Yetu</a>
+      <label for="description">DALILI ULIZONAZO</label>
+      <textarea id="description" name="description" rows="3"></textarea>
 
-      <div class="upload-section">
-        <h3>J.A CLEANER KWA AJILI YAKO:</h3>
-        <img src="image/IMG_20250520_130902 (2).jpg" alt="Machine" style="height: 200px; width: 200px;" />
+      <label for="meds">DAWA UNAZOHITAJI</label>
+      <textarea id="meds" name="meds" rows="4" required></textarea>
 
-        <h3>MACHINE BORA KABISAAAAAA:</h3>
-        <img src="image/IMG_20250520_131523.jpg" alt="Machine" style="height: 200px; width: 200px;" />
+      <label for="location">ENEO ULIOPO</label>
+      <input type="text" id="location" name="location" required>
 
-        <br />
-        <img id="shopImage" src="" alt="Picha ya Nje ya Duka" style="width: 50%; max-height: 50px; display: none; margin-top: 10px;" />
-        
-        <p>J.A CLEANER KWA AJILI YA KUKUFANYA KUWA NADHIFUUUU DADA, KAKA, KIJANA, MZEE, UNADHIFU NI HAKI YAKOOOO</p>
-        <p>USIJIULIZE NI WAPI PA KUSAFISHA NA KUFUA NGUO J.A CLEANER TUPO KWA AJILI YAKOOO</p>
-      </div>
+      <button type="submit">WEKA ORDER YAKO</button>
+    </form>
+
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126670.54089609998!2d33.3723635!3d-8.9390726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19b548f30163cfd9%3A0xe06ad2e51a1b943f!2sLupeta%2C%20Mbeya!5e0!3m2!1sen!2stz!4v1717589000000!5m2!1sen!2stz"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Mama Junior Pharmacy. All rights reserved.
+  </footer>
 
   <script>
-    function loadBackgroundImage(event) {
-      const image = document.getElementById('backgroundImage');
-      image.src = URL.createObjectURL(event.target.files[0]);
-    }
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const description = document.getElementById('description').value;
+      const meds = document.getElementById('meds').value;
+      const location = document.getElementById('location').value;
 
-    function loadShopPicture(event) {
-      const image = document.getElementById('shopImage');
-      image.src = URL.createObjectURL(event.target.files[0]);
-      image.style.display = 'block';
-    }
+      const emailBody = `New Order from: ${name}\nPhone: ${phone}\nDescription: ${description}\nMedications: ${meds}\nLocation: ${location}`;
+      const emailLink = `mailto:lesnedycharles@gmail.com?subject=Mama%20Junior%20Pharmacy%20Order&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = emailLink;
+
+      const whatsappMessage = `New order from: ${name}%0APhone: ${phone}%0ADescription: ${description}%0AMedications: ${meds}%0ALocation: ${location}`;
+      const whatsappURL = `https://wa.me/255789611390?text=${whatsappMessage}`;
+      window.open(whatsappURL, '_blank');
+    });
   </script>
 </body>
 </html>
